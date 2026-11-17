@@ -1,0 +1,25 @@
+# Brief
+
+## Who asks and what
+The head of sales of a UK online retailer wants a monthly business review:
+which months sales rise or drop, and is there a seasonal pattern.
+
+## My 3 questions
+1. How does revenue change month by month?
+2. Which products and countries bring in the most revenue?
+3. Do customers come back and buy again?
+
+## Definitions
+- Revenue = Quantity x Price for each row, added up.
+- Order = one invoice number.
+- Customer = one Customer ID (rows without one are left out of customer
+  questions).
+- Repeat customer = a customer with 2 or more different invoices.
+
+## The period
+2009-12-01 to 2011-12-09. December 2011 has only 9 days.
+
+## What I'm unsure about
+- Cancellations (invoices starting with C).
+- Missing Customer ID (about 23%).
+- Some removed repeated rows may have been real purchases.

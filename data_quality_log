@@ -1,0 +1,42 @@
+# Data quality log
+
+## Issue 1: Two sheets overlap, plus repeated rows
+- The two sheets overlap from 2010-12-01 to 2010-12-09 (sheet 1 ends
+  2010-12-09 20:01, sheet 2 starts 2010-12-01 08:26).
+- Both sheets have 22,523 rows in that window, and 100% of the invoices in
+  sheet 1's window also appear in sheet 2's window.
+- After stacking, 34,335 rows were exact duplicates: 22,523 from the
+  overlap, and about 11,812 repeated rows inside a single sheet (6,865 in
+  sheet 1 and 5,268 in sheet 2).
+- Action: removed all with drop_duplicates(). 1,067,371 -> 1,033,036 rows.
+- Assumption: repeats inside a sheet are entry errors. Some may be real
+  repeated purchases.
+
+## Issue 2: Missing Customer ID
+- 243,007 rows (about 23%) have no Customer ID.
+- Action: kept in revenue; customer questions cover only the other 77%.
+
+## Issue 3: Missing Description
+- 4,382 rows. Not decided yet.
+
+## Issue 4: Cancellations
+- 19,104 rows have an invoice starting with C. All but one have a negative
+  quantity.
+- The one exception: C496350, code M "Manual", +373.57. Left as is.
+- Action: reported separately as returns, with sales and net.
+
+## Issue 5: Giant order cancelled right away (December 2011)
+- Invoice 581483 (80,995 units, 168,469.60 GBP) and C581484, the next
+  invoice. Net zero, but they inflated sales and returns. Removed both.
+
+## Issue 6: Giant order cancelled right away (January 2011)
+- Invoice 541431 (77,183.60) and C541433 16 minutes later, same day,
+  customer 12346. Removed both.
+
+## Issue 7: Fees and manual entries (open)
+- AMAZON FEE (about -33K), "Manual" and "Bank Charges" appear as returns
+  in January 2011. They aren't product returns. Decision pending.
+
+## Issue 8: Incomplete last month
+- December 2011 has only 9 days (data ends 2011-12-09). Not compared with
+  other months.
