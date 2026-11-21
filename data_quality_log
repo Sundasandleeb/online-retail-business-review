@@ -34,9 +34,18 @@
   customer 12346. Removed both.
 
 ## Issue 7: Fees and manual entries (open)
-- AMAZON FEE (about -33K), "Manual" and "Bank Charges" appear as returns
-  in January 2011. They aren't product returns. Decision pending.
+- In January 2011 I found there are some entries like AMAZON FEE (about -33K), "Manual"
+  and "Bank Charges" appear as returns. They aren't product returns.
+  Action : Count all these rows
+  Decision pending.
 
 ## Issue 8: Incomplete last month
 - December 2011 has only 9 days (data ends 2011-12-09). Not compared with
   other months.
+
+## Issue 9: Non-product entries
+  The stock codes for 5,652 rows are for postage, shipping, manual adjustments,
+  discounts, samples, bank charges and Amazon fees (POST, DOT, C2, M, D, S,
+  BANK CHARGES, ADJUST, AMAZONFEE). They aren’t product sales, so I removed
+  them from the analysis. Net amount about +81K, under 1% of revenue. I kept
+  gift vouchers and items with unusual codes and also two “update” items.
